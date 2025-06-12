@@ -64,7 +64,7 @@ pipeline {
                     bat 'az login --service-principal -u %AZURE_CLIENT_ID%' -p %AZURE_CLIENT_SECRET% --tenant %AZURE_TENANT_ID%
                     bat 'az account set --subscription %AZURE_SUBSCRIPTION_ID%'
                 }
-\\            }
+            }
         }
         stage('Upload to Azure Storage'){
             steps {
