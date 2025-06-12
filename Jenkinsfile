@@ -53,7 +53,7 @@ pipeline {
                     // Publishing the application
                     bat "dotnet publish --no-restore --configuration Release --output .\\publish"
                     //compress the published output into a zip file
-                    bat="powershell compress-Archive -Path .\\publish* -DestinationPath .\\${APPLICATION_ZIP} -Force"
+                    bat="powershell compress-Archive -Path .\\publish\\* -DestinationPath .\\${APPLICATION_ZIP} -Force"
                 }
             }
         }
@@ -64,7 +64,7 @@ pipeline {
                     bat 'az login --service-principal -u %AZURE_CLIENT_ID%' -p %AZURE_CLIENT_SECRET% --tenant %AZURE_TENANT_ID%
                     bat 'az account set --subscription %AZURE_SUBSCRIPTION_ID%'
                 }
-            }
+\\            }
         }
         stage('Upload to Azure Storage'){
             steps {
